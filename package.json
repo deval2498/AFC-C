@@ -9,13 +9,25 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Terminal Discord Configuration",
+      "properties": {
+        "terminalDiscord.webhookUrl": {
+              "type": "string",
+              "default": "",
+              "description": "Discord webhook URL to send terminal output."
+            }
+        }
+      },
     "commands": [
       {
-        "command": "afc-c.helloWorld",
-        "title": "Hello World"
+        "command": "afc-c.createMonitoredTerminal",
+        "title": "Create Monitored Terminal"
       }
     ]
   },
