@@ -1,20 +1,35 @@
 # afc-c README
 
-This is the README for your extension "afc-c". After writing up a brief description, we recommend including the following sections.
+AFC-c is a tool to help developers get terminal outputs on discord when they are afk.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension helps developers stay connected even when they're away from their keyboard (AFK). If you're AFK for a certain period and have joined the configured Discord server, it will automatically send a message via a Discord bot, notifying others of your status or predefined message.
 
-For example if there is an image subfolder under your extension project workspace:
+🔑 Key Features
+⏳ AFK Detection: Detects when you're inactive in VS Code for a specified time.
 
-\!\[feature X\]\(images/feature-x.png\)
+🤖 Discord Integration: Automatically sends a message using a Discord bot when you're AFK.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+🛡️ Server-Specific: Only works if you’ve joined the linked Discord server.
+
+✍️ Customizable Messages: Set your own AFK timers, polling intervals and number of outputs to batch in the extension settings.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Join the `afc-c` server on Discord using this [invite link](https://discord.gg/BbpRnPVMeW) 
+Turn on developer mode from settings of your profile
+Copy user id from the server after turning on developer mode
+
+and you're all set!
+
+## Network Activity
+
+This extension sends terminal output messages via POST request to a custom backend:
+- Endpoint: `https://afc-cproxyserver-production.up.railway.app/send-dm`
+- Purpose: To forward AFK terminal logs to Discord via bot DM
+- No personal data or user identifiers are shared beyond the configured user ID
+
 
 ## Extension Settings
 
@@ -26,26 +41,6 @@ This extension contributes the following settings:
 
 * `myExtension.enable`: Enable/disable this extension.
 * `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
 
 ---
 

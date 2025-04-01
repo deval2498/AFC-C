@@ -1,10 +1,17 @@
 {
   "name": "afc-c",
   "displayName": "AFC&C",
-  "description": "Something",
+  "description": "Send terminal outputs to your discord",
+  "publisher": "DevalMinocha",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.98.0"
+  },
+  "extensionKind": ["workspace"],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
   },
   "categories": [
     "Other"
@@ -18,12 +25,32 @@
       "title": "Terminal Discord Configuration",
       "properties": {
         "terminalDiscord.webhookUrl": {
-              "type": "string",
-              "default": "",
-              "description": "Discord webhook URL to send terminal output."
-            }
+          "type": "string",
+          "default": "",
+          "description": "Discord webhook URL to send terminal output. Click here to join the server (https://discord.gg/BbpRnPVMeW)"
+        },
+        "terminalDiscord.AFK_THRESHOLD": {
+          "type": "number",
+          "default": "500000",
+          "description": "After how much afk duration do you want to recieve terminal outputs, 50000 => 50 secs"
+        },
+        "terminalDiscord.USER_ID": {
+          "type": "string",
+          "default": "",
+          "description": "Discord snowflake id, set your developers mode to on, and then copy from the profile in server"
+        },
+        "terminalDiscord.TERMINAL_POLLING": {
+          "type": "number",
+          "default": "5000",
+          "description": "How frequently do you want to recieve messages smallest unit is millisecond 10000 -> 10 secs"
+        },
+        "terminalDiscord.BATCH_SIZE": {
+          "type": "number",
+          "default": "10",
+          "description": "Output batching size"
         }
-      },
+      }
+    },
     "commands": [
       {
         "command": "afc-c.createMonitoredTerminal",
@@ -46,16 +73,19 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.98.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.98.0",
     "@typescript-eslint/eslint-plugin": "^8.25.0",
     "@typescript-eslint/parser": "^8.25.0",
-    "eslint": "^9.21.0",
-    "esbuild": "^0.25.0",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.7.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.21.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }
